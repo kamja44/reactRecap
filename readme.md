@@ -27,3 +27,17 @@ react 동작 순서
 
 - const container = React.createElement("div", null, [span, btn]);
 - ReactDOM.render(container,root);
+
+# 2.5
+
+JSX
+
+- javascript를 확장한 문법
+- HTML에서 사용한 문법과 비슷한 문법을 이용해서 react요소를 만든다.
+- JSX를 이용하기 위해서는 babel을 사용해야 한다.
+
+babel
+
+- 신형코드 -> 옛코드로 변환
+  babel CDN
+- https://unpkg.com/@babel/standalone/babel.min.js
