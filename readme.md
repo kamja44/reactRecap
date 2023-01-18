@@ -87,3 +87,14 @@ JSX에 함수 할당하기
   counter++;
   }
 - <button onClick={countUp}>Click me</button>
+
+ReactDOM.render(<Container />, root);
+
+- 카운터를 증가시켜도 초기상태에서 한번만 렌더했기에 카운터의 값은 0이다. 즉, 값이 갱신되지 않는 문제가 발생한다.
+- counter값을 갱신시키고, 그 후 Container를 다시 한번 렌더한다.
+- function countUp(){
+  counter++;
+  ReactDOM.render(<Container />, root);
+  }
+  -React.js는 UI에서 바뀐부분(counter)만 업데이트 해준다.
+- 기존의 javascript는 태그까지 업데이트(재선언)한다.
