@@ -21,9 +21,7 @@
     const App = () => {
       const [counter, setCounter] = React.useState(0);
       const onClick = () => {
-        // counter++;
-        // console.log(counter);
-        setCounter(counter + 1);
+        setCounter((current) => current + 1);
       };
       return (
         <div>
