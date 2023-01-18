@@ -4,29 +4,43 @@
   <body>
     <div id="root"></div>
   </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@17.0.2/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"
+  ></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.querySelector("#root");
     /*USING JSX*/
-    let counter = 0;
-    function countUp() {
-      counter++;
-      render();
-    }
     function render() {
       ReactDOM.render(<App />, root);
     }
     const App = () => {
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        setCounter((current) => current + 1);
+      const [minutes, setMinutes] = React.useState();
+      const onChange = (event) => {
+        const { value } = event.target;
+        setMinutes(value);
       };
       return (
         <div>
-          <h3>Total clicks: {counter}</h3>
-          <button onClick={onClick}>Click me</button>
+          <h1 className="hi">Super Converter</h1>
+          <label htmlFor="minutes" value={minutes}>
+            Minutes
+          </label>
+          <input
+            id="minutes"
+            placeholder="Minutes"
+            type="number"
+            value={minutes}
+            onChange={onChange}
+          />
+          <h4>You want to conver {minutes}</h4>
+          <label htmlFor="hours">Minutes </label>
+          <input id="hours" placeholder="Hours" type="number" />
         </div>
       );
     };

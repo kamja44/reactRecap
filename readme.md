@@ -140,3 +140,31 @@ modifyFunction(setCoutner)에는 함수를 할당할 수 있다.
 - setCounter(current => current +1);
 - setCounter에 현재의 값을 할당하는 방법보다 함수를 할당하여 현재의 값을 변경하는 방법이 안전하다.(함수의 argument가 현재 값 확실히 현재값이라는걸 보장 가능)
 - 즉, 현재 state(현재값)을 기반으로 계산을 하려면 함수를 이용해야한다. modifyFunction에 함수를 할당하면 함수의 argument는 현재값이라는걸 보장할 수 있다.( const [counter, setCoutner] = React.useState(0)에서 setCounter((current) => current + 1) 이라고 한다면 current에는 현재값인 coutner가 들어간다.)
+
+# 3.5
+
+현재 사용중인 react는 production버전이다.
+
+- <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  production 버전을 development 버전으로 변셩하면 html의 예약어 사용이 불가능하다.
+- <script src="https://unpkg.com/react@17.0.2/umd/react.development.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.min.js"></script>
+
+html 예약어 사용 불가
+
+- <label for="minutes" class="hi">Minutes </label>
+  <input id="minutes" placeholder="Minutes" type="number" />
+  <label for="hours">Minutes </label>
+  <input id="hours" placeholder="Hours" type="number" />
+  아래와 같이 변경해서 사용해야 한다.
+- <label htmlFor="minutes" className="hi">Minutes </label>
+  <input id="minutes" placeholder="Minutes" type="number" />
+  <label htmlFor="hours">Minutes </label>
+  <input id="hours" placeholder="Hours" type="number" />
+
+onChnage Event
+
+- 새로운 값을 입력할 때 마다 value를 업데이트 시킨다.
+- <input value={minutes} id="minutes" placeholder="Minutes" type="number"
+  onChange={}>
