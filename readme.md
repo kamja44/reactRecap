@@ -72,3 +72,18 @@ JSX를 이용하여 Container 생성하기
 - ReactDOM.render(<container />, root);
   !!!!!
   함수로 선언할 때와 JSX에서 셀프 클로징 태그를 선언할 때 첫 글자는 항상 대문자로 선언한다.(소문자로 선언 시 JSX는 HTML 태그로 인식한다.)
+
+# 3.0
+
+JSX에 변수 할당하기
+
+- let counter=10;
+<h3>Total clicks: {counter}<h3>
+- Total clicks: 10이 반환된다.
+
+JSX에 함수 할당하기
+
+- function countUp(){
+  counter++;
+  }
+- <button onClick={countUp}>Click me</button>
