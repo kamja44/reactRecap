@@ -98,3 +98,37 @@ ReactDOM.render(<Container />, root);
   }
   -React.js는 UI에서 바뀐부분(counter)만 업데이트 해준다.
 - 기존의 javascript는 태그까지 업데이트(재선언)한다.
+
+# 3.1
+
+React에서 어플리케이션을 다룰 때 변수를 저장하는 방법
+
+- ReactDOM이 렌더하는 태그(App or Container)의 return문 전에 useStatus를 사용한다.
+- function App(){
+  const data = React.useState(0)
+  return ...
+  }
+- data 즉, React.useState()는 2가지 요소를 지니고 있는 배열을 반환하는데[data, function] data는 할당받은 값이다.(data는 초기값을 가질 수 있다.) function은 data를 바꿀 떄 사용하는 함수이다.
+
+javascript에서 배열의 요소를 꺼내는 방법
+
+- const food = ["tomato","potato"]
+- const [myFavFood, mySecondFavFood] = food;
+- 이렇게 사용하면 myFavFood에는 tomato가 할당되고, mySecondFavFood에는 potato가 할당된다.
+
+#
+
+React.useState()가 반환하는 배열의 2가지 요소를 아래와 같이 꺼내 사용한다.
+
+- const[counter, modifier] = React.useState();
+- React.useState()는 ["data", function]을 반환하는데 이렇게 사용하면 counter에는 "data"가 할당되고 modifier에는 function이 할당된다.
+- const[counter, modifier] = React.useState(0);
+- 위 문장에서 counter에는 초깃값인 0이 할당되고 modifier에는 data를 바꿀 때 사용하는 function이 할당된다. 즉, counter = 0이고 modifier=function이 할당된다.
+- modifier함수는 값을 하나 할당받을 수 있다. modifier함수에 어떤 값을 부여하든 modifier함수는 그 값으로 업데이트하고 리렌더링 한다.
+- const [counter, modifier] = React.useState(0);
+- const onClick = () => {
+  modifier(4444);
+  }
+- counter를 출력할 때 클릭 이벤트를 발생시키면 0에서 4444로 업데이트된다.
+- 즉, React.useState 함수는 counter같은 데이터를 숫자형 데이터로 건네주고, 그 데이터 값을 바꿀 함수(modifier)도 함께 준다. 그리고 그 함수(modifier)를 이용하여 데이터를 바꿧을 때 데이터의 값이 바뀌고 컴포넌트도 동시에 리렌더링 된다.
+- 위 코드에서는 [counter, modifier]로 설정했지만 관습적으로 [counter, setCounter]로 사용한다.
