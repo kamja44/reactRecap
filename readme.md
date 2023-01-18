@@ -34,10 +34,41 @@ JSX
 
 - javascript를 확장한 문법
 - HTML에서 사용한 문법과 비슷한 문법을 이용해서 react요소를 만든다.
-- JSX를 이용하기 위해서는 babel을 사용해야 한다.
+- JSX를 이용하기 위해서는 babel을 사용한 후 script의 타입을 text/babel로 설정해야한다.
+- <script type="text/babel"></script>
 
 babel
 
 - 신형코드 -> 옛코드로 변환
   babel CDN
 - https://unpkg.com/@babel/standalone/babel.min.js
+
+# 2.6
+
+JSX를 이용하여 Container 생성하기
+
+- 기존에 생성한 Button과 Title 상수들을 함수로 선언한다.
+- const Title = () => (
+    <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+      Hello I'm a title
+    </h3>
+  );
+  const Button = () => (
+    <button
+      id="button"
+      onClick={() => console.log("I'm Clicked")}
+      style={{ backgroundColor: "tomato" }}
+    >
+      Click me
+    </button>
+  );
+- 선언한 함수들을 Container에 함수를 호출하는 방식이 아닌 셀프 클로징 태그로 선언한다. Title() -> <Title/> && Button() -> <Button/>
+- Container 상수도 함수로 선언 후 render한다.
+- const Container = () => (
+  <div>
+  <Title /><Button />
+  </div>
+  )
+- ReactDOM.render(<container />, root);
+  !!!!!
+  함수로 선언할 때와 JSX에서 셀프 클로징 태그를 선언할 때 첫 글자는 항상 대문자로 선언한다.(소문자로 선언 시 JSX는 HTML 태그로 인식한다.)
