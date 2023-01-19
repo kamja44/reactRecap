@@ -179,3 +179,17 @@ JSX Props
 - <Btn dev="kamja">
 - 이러한 코드가 있다고 가정하면 Btn의 argumentㅇ니 props에는 {dev:"kamja"}가 들어간다.
 - 즉, {props.dev}를 사용하면 dev의 값인 kamja가 출력된다.
+
+# 4.1
+
+아래와 같은 코드가 있을 때 첫 번째 props는 value가 변경될 때 재생성(render)되는게 맞지만 두 번째 Component는 value가 없음에도 render된다.
+
+- const [value, setValue] = React.useState("Save Changes");
+- <Btn kamja={value} onClick={changeValue} />
+     <Btn kamja="kokuma" />
+  이러한 문제를 React.memo()를 사용하여 해결할 수 있다.
+- const MemorizedBtn = React.memo(Btn);
+- <MemorizedBtn kamja={value} onClick={changeValue} />
+  <MemorizedBtn kamja="kokuma" />
+- React.momo()를 사용하면 value가 변경되지 않는 props는 재생성(render)되지 않는다.
+- application이 느려지는 원인이 될 수 있다.

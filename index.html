@@ -15,7 +15,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    const Btn = ({ kamja }) => {
+    const Btn = ({ kamja, onClick }) => {
       return (
         <button
           style={{
@@ -25,16 +25,20 @@
             border: 0,
             borderRadius: 10,
           }}
+          onClick={onClick}
         >
           {kamja}
         </button>
       );
     };
+    const MemorizedBtn = React.memo(Btn);
     const App = () => {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue((data) => "Revert Changes");
       return (
         <div>
-          <Btn kamja="kamja" />
-          <Btn kamja="kokuma" />
+          <MemorizedBtn kamja={value} onClick={changeValue} />
+          <MemorizedBtn kamja="kokuma" />
         </div>
       );
     };
