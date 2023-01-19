@@ -168,3 +168,14 @@ onChnage Event
 - 새로운 값을 입력할 때 마다 value를 업데이트 시킨다.
 - <input value={minutes} id="minutes" placeholder="Minutes" type="number"
   onChange={}>
+
+# 4.0
+
+JSX Props
+
+- 개발자가 만들고 사용하는 모든 컴포넌트들은 argument를 받는다.
+  즉,
+- const Btn = (props) => {}
+- <Btn dev="kamja">
+- 이러한 코드가 있다고 가정하면 Btn의 argumentㅇ니 props에는 {dev:"kamja"}가 들어간다.
+- 즉, {props.dev}를 사용하면 dev의 값인 kamja가 출력된다.
