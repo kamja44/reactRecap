@@ -219,3 +219,12 @@ PropType 사용법
 - prop을 받을 때 기본값을 설정할 수 있다.
 - const Btn = ({text, fontSize = 30}) => {}
 - props을 받지 못했을 때 설정한 기본값을 props의 설정값으로 사용한다.
+
+# 4.3 Recap
+
+- prop을 전달할 때 전달할 때의 이름과 전달 받는 argument의 이름은 동일해야한다.
+
+# 5.0
+Create React app
+1. npx create-react-app 어플리케이션 이름
+- npx create-react-app react-recap
