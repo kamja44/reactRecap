@@ -4,18 +4,13 @@
   <body>
     <div id="root"></div>
   </body>
-  <script
-    crossorigin
-    src="https://unpkg.com/react@17.0.2/umd/react.development.js"
-  ></script>
-  <script
-    crossorigin
-    src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"
-  ></script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    const Btn = ({ kamja, onClick }) => {
+    const Btn = ({ text, fontSize = 30 }) => {
       return (
         <button
           style={{
@@ -24,21 +19,22 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
+            fontSize,
           }}
-          onClick={onClick}
         >
-          {kamja}
+          {text}
         </button>
       );
     };
-    const MemorizedBtn = React.memo(Btn);
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
     const App = () => {
-      const [value, setValue] = React.useState("Save Changes");
-      const changeValue = () => setValue((data) => "Revert Changes");
       return (
         <div>
-          <MemorizedBtn kamja={value} onClick={changeValue} />
-          <MemorizedBtn kamja="kokuma" />
+          <Btn text="Save Changes" fontSize={44} />
+          <Btn text="Continue" />
         </div>
       );
     };

@@ -193,3 +193,29 @@ JSX Props
   <MemorizedBtn kamja="kokuma" />
 - React.momo()를 사용하면 value가 변경되지 않는 props는 재생성(render)되지 않는다.
 - application이 느려지는 원인이 될 수 있다.
+
+# 4.2
+
+PropType
+
+- 개발자가 어떤 타입의 prop을 받고 있는지 체크한다.
+
+PropType 사용법
+
+1. PropType설치[CDN]
+
+- <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+2. React에게 prop들의 타입이 무엇인지 명시
+
+-     Btn.propTypes = {
+      text: propTypes.string,
+      fontSize: propTypes.number,
+  }
+- console.log(propTypes)로 propTypes을 확인할 수 있다.
+- 컴포넌트가 prop들을 무조건 갖고 있어야 한다면 isRequired옵션을 사용할 수 있다.
+- text: propTypes.string.isRequired
+- 즉, text는 항상 값이 존재한다고 보장할 수 있다.
+- prop을 받을 때 기본값을 설정할 수 있다.
+- const Btn = ({text, fontSize = 30}) => {}
+- props을 받지 못했을 때 설정한 기본값을 props의 설정값으로 사용한다.
