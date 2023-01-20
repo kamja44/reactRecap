@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./App.module.css";
 function App() {
   const [toDo, setToDo] = useState("");
   const [toDoArray, setToDoArray] = useState([]);
@@ -12,21 +13,23 @@ function App() {
     setToDo((data) => "");
   };
   return (
-    <div>
-      <h1>My To Do List ({toDoArray.length})</h1>
-      <form onSubmit={onSubmit}>
+    <div className={styles.Container}>
+      <h1 className={styles.h1}>My To Do List ({toDoArray.length})</h1>
+      <form onSubmit={onSubmit} className={styles.form}>
         <input
+          className={styles.input}
           onChange={onChange}
           value={toDo}
           type="text"
           placeholder="Write your to do..."
         />
-        <button>Add To Do</button>
+        <button className={styles.button}>Add To Do</button>
       </form>
-      <hr />
-      <ul>
-        {toDoArray.map((item, index) => (
-          <li key={index}>{item}</li>
+      <ul className={styles.ul}>
+        {toDoArray.reverse().map((item, index) => (
+          <li key={index}>
+            {index + 1}. {item}
+          </li>
         ))}
       </ul>
     </div>
