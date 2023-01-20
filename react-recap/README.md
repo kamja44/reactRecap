@@ -41,3 +41,21 @@ useEffect의 2번째 argument
 - 즉, 다른 state가 변경될 떄는 keyword가 설정된 useEffect는 실행되지 않는다.
 
 - 배열에 2개의 state를 등록하면 2개 중 하나의 state변경 시 첫 번째 argument에서 설정한 코드를 실행한다.
+
+# 6.4
+
+Cleanup Function
+
+- useEffect의 return
+- useEffect의 return을 사용하면 component가 삭제될 때 (즉, useEffect의 state가 삭제될 때) return문(cleanup Function)을 실행한다.
+- useEffect(() => {
+  console.log("Created");
+  return () => console.log("Destroyed");
+  }, []);
+  return <h1>Hello</h1>;
+- 즉, 위의 코드에서 <h1>Hello<h1>이 사라진다면 return () => console.log("Destroyed");가 실행된다.
+- 위의 코드는 아래의 코드와 동일한 코드이다.
+- function byFn(){console.log("bye");}
+- function hiFn(){console.loog("created"); return byFn;}
+- useEffect(hiFn, []);
+- reurn <h1>Hello</h1>;

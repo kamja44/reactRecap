@@ -1,30 +1,27 @@
 import { useState, useEffect } from "react";
+function Hello() {
+  // function
+  useEffect(function () {
+    console.log("hi");
+    return function () {
+      console.log("bye");
+    };
+  }, []);
+  // arrow Function
+  useEffect(() => {
+    console.log("h1");
+    return () => console.log("bye");
+  }, []);
+  // function 코드와 arrow Function코드는 서로 동일하다.
+  return <h1>Hello</h1>;
+}
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyWord] = useState("");
-  const onClick = () => setCounter((data) => data + 1);
-  const onChange = (event) => setKeyWord(event.target.value);
-  // console.log("run all times");
-  useEffect(() => console.log("I run only once."), []);
-  useEffect(() => {
-    console.log(`keyword Changes`);
-  }, [keyword]);
-  useEffect(() => {
-    console.log("coutner Changes");
-  }, [counter]);
-  useEffect(() => {
-    console.log("keyword & conter change");
-  }, [keyword, counter]);
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((data) => !data);
   return (
     <div>
-      <input
-        value={keyword}
-        onChange={onChange}
-        type="text"
-        placeholder="Search here..."
-      />
-      <h1>{counter}</h1>
-      <button onClick={onClick}>ClickMe</button>
+      <button onClick={onClick}>{showing ? "Hide" : "Showing"}</button>
+      {showing ? <Hello /> : null}
     </div>
   );
 }
