@@ -1,10 +1,13 @@
-import Button from "./Button";
-import styles from "./App.module.css";
+import { useState, useEffect } from "react";
 function App() {
+  const [counter, setCounter] = useState(0);
+  const onClick = () => setCounter((data) => data + 1);
+  console.log("run all times");
+  useEffect(() => console.log("Loading API..."), []);
   return (
     <div>
-      <h1 className={styles.title}>Welcome back!</h1>
-      <Button text={"kamja"} />
+      <h1>{counter}</h1>
+      <button onClick={onClick}>ClickMe</button>
     </div>
   );
 }
