@@ -27,3 +27,17 @@ useEffect
 - 첫 번째 argument는 사용자가 딱 한번 실행하고 싶은 코드
 - useState를 사용하면 state가 변경될 때마다 코드가 재실행 되었는데 useEffect를 사용하면 state가 변경되더라도 useEffect에 설정한 코드는 한번만 실행된다.
 - useEffect(() => console.log("Loading API..."), []);
+
+# 6.2
+
+useEffect의 2번째 argument
+
+- 2번째 argument는 중괄호 안에 state를 할당한다. ex) [keyword]
+- 2번째 argument에 설정한 state가 변화할 때만 1번째 argument에서 설정한 코드를 실행한다.
+- useEffect(() => {
+  console.log(`Search For ${keyword}`);
+  }, [keyword]);
+- 2번째 argument인 keyword가 변경될 때마다 console.log(`Search For ${keyword}`); 문장이 실행된다.
+- 즉, 다른 state가 변경될 떄는 keyword가 설정된 useEffect는 실행되지 않는다.
+
+- 배열에 2개의 state를 등록하면 2개 중 하나의 state변경 시 첫 번째 argument에서 설정한 코드를 실행한다.
