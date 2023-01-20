@@ -74,3 +74,8 @@ useState를 사용할 때 react는 modify함수의 첫번째 argument로 현재�
 - const [toDo, setToDo] = useState("");
 - setToDo 함수는 toDo를 가지고 있다.
 - 즉, setToDo((data) => "kamja")함수를 사용하게 되면 data는 setToDo함수가 가지고 있는 toDo가 되고 toDo는 "kamja"를 값으로 가지게 된다.
+
+# 7.1
+
+javascript array.map(item, index)
+react에서 배열을 이용하여 연속적으로 html 태그를 생성할 때 태그에 key값을 입력해야 한다. <- map의 2번째 argument인 index를 key값에 할당함으로써 해결
