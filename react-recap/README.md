@@ -59,3 +59,23 @@ Cleanup Function
 - function hiFn(){console.loog("created"); return byFn;}
 - useEffect(hiFn, []);
 - reurn <h1>Hello</h1>;
+
+# 7.0
+
+ToDo List
+
+기존 배열에 배열 추가하기
+
+- [6]배열이 있고 let food = [1,2,3,4]배열이 있다. food 배열을 [6]배열에 추가하는 방법은 [6, ...food]이다.
+- [6, ...food] => [6,1,2,3,4]가 반환된다.
+
+useState를 사용할 때 react는 modify함수의 첫번째 argument로 현재의 state를 보낸다.
+
+- const [toDo, setToDo] = useState("");
+- setToDo 함수는 toDo를 가지고 있다.
+- 즉, setToDo((data) => "kamja")함수를 사용하게 되면 data는 setToDo함수가 가지고 있는 toDo가 되고 toDo는 "kamja"를 값으로 가지게 된다.
+
+# 7.1
+
+javascript array.map(item, index)
+react에서 배열을 이용하여 연속적으로 html 태그를 생성할 때 태그에 key값을 입력해야 한다. <- map의 2번째 argument인 index를 key값에 할당함으로써 해결
