@@ -36,10 +36,7 @@ function App() {
           {coins.map((coin, index) => (
             <option>
               {coin.name} ({coin.symbol}): ${coin.quotes.USD.price}
-              USD
-              {/* <span>
-              You can buy {value / coin.quotes.USD.price} {coin.name}
-            </span> */}
+              USD [You can buy {value / coin.quotes.USD.price} {coin.name}]
             </option>
           ))}
         </select>
