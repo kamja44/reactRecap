@@ -1,3 +1,4 @@
+
 .container {
   width: 100vw;
   height: 90vh;
@@ -8,4 +9,37 @@
 }
 .input {
   width: 30vw;
+
+  font-size: 28px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: coral;
+  opacity: 1;
+  border: none;
+  color: white;
+}
+.input::placeholder {
+  color: white;
+}
+.button {
+  margin-top: 10px;
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  background-color: powderblue;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+.ul {
+  margin-top: 10vh;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
 }
