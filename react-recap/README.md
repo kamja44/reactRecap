@@ -59,3 +59,45 @@ Cleanup Function
 - function hiFn(){console.loog("created"); return byFn;}
 - useEffect(hiFn, []);
 - reurn <h1>Hello</h1>;
+
+---
+
+## useEffect()에서 async await 사용하기
+
+#### useEffect(async()=>,[])으로 사용하면 에러 발생
+
+```
+useEffect(async () => {
+    const result = await fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year`
+    );
+    const resultJson = await result.json();
+    console.log(resultJson);
+  });
+  이 코드를 아래와 같이 수정한다
+    useEffect(() => {
+    const result = async () => {
+      const api = await (
+        await fetch(
+          `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year`
+        )
+      ).json();
+      console.log(api);
+    };
+    result();
+  }, []);
+```
+
+## API 데이터 표출하기
+
+#### api로 데이터를 가져올 떄 setMovies()함수에 가져온 데이터를 넣어 movies에 데이터를 할당한다.
+
+```
+  <div>
+    {movies.map((movie) => (
+      <div key = {movie.id}>
+        {movie.title}
+      </div>
+    )})}
+  </div>
+```
