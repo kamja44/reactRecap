@@ -80,7 +80,7 @@ useState를 사용할 때 react는 modify함수의 첫번째 argument로 현재�
 javascript array.map(item, index)
 react에서 배열을 이용하여 연속적으로 html 태그를 생성할 때 태그에 key값을 입력해야 한다. <- map의 2번째 argument인 index를 key값에 할당함으로써 해결
 
-# 7.4
+# 7.4 ~ 7.5
 
 Key는 React.js에서만 map 안에서 component들을 render할 때 사용한다.
 
@@ -90,4 +90,59 @@ PropTypes
 
 React Router
 
-1. npm i react-router-dom
+1. npm i react-router-dom@5.3.0
+
+2. import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+3. Create Router Component and use Switch
+
+```
+return (
+  <Router>
+    <Switch>
+      <Route></Route>
+    </Switch>
+  </Router>
+);
+```
+
++Router는 URL을 찾으면 컴포넌트를 렌더링하는 역할
+
+4. Route 컴포넌트에 경로와 경로에 접근했을 때 동작할 컴포넌트 작성
+
+```
+return(
+    <Router>
+      <Switch>
+        <Route path = "/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+  # Route path="/" <- Home URL로 접근할 때 Route안의 컴포넌트 즉, Home 컴포넌트를 실행한다.
+```
+
+### Switch component
+
+- 한번에 하나의 Route만 렌더링 하기 위해 사용
+
+* React Router는 두개의 Route를 한번에 렌더링이 가능하다.
+
+react router에는 Browser Router와 Hash Router가 있다.
+
+### Browser Router
+
+- Normal URL
+
+### Hash Router
+
+- URL에 특수한 기호가 추가됨 ex) #
+
+### Link Component
+
+- 브라우저 새로고침이 없이도 유저를 다른 페이지로 이동시켜주는 컴포넌트
+
+```
+<Link to ="/movie">{title}</Link>
+```
