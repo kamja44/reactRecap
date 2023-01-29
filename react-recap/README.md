@@ -146,3 +146,43 @@ react router에는 Browser Router와 Hash Router가 있다.
 ```
 <Link to ="/movie">{title}</Link>
 ```
+
+## URL에 변수 추가하기
+
+- :변수명
+
+* MovieApp.js
+
+```
+<Route path="/movie/:id">
+  <Detail/>
+<Route />
+```
+
+- Home.js
+
+```
+{movies.map((movie) => (
+            <Movie
+              key={movie.id}
+              id={movie.id}
+              coverImg={movie.medium_cover_image}
+              title={movie.title}
+              summary={movie.summary}
+              genres={movie.genres}
+            />
+          ))}
+```
+
+### react-router-dom의 useParams()를 이용하면 URL에 추가한 변수를 사용할 수 있다.
+
+```
+import { useParams } from "react-router-dom";
+function Detail() {
+  const x = useParams();
+  console.log(x);
+  return <h1>Detail</h1>;
+}
+```
+
+- console.log(x)에는 URL에 할당한 변수인 :id가 Object형식으로 출력된다.
